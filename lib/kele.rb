@@ -15,6 +15,11 @@ class Kele
 		@user_data = JSON.parse(response.body)
 	end
 
+  def get_mentor_availability (mentor_id)
+    response = self.class.get("/mentors/#{mentor_id}/student_availability", headers: { "authorization" => @auth_token } )
+    @mentor_availabilty = JSON.parse(response.body)
+  end
+
 	private
 	def get_auth_token(e, p)
 		response = self.class.post("/sessions", body: {email: e, password: p})
