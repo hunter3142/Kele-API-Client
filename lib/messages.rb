@@ -18,7 +18,6 @@ module Messages
         stripped_text: stripped_text
       }, 
       headers: { "authorization" => @auth_token})
-    @created_message = JSON.parse(response.body)
-
+    puts response
   end
 end
